@@ -106,27 +106,3 @@ To force specific translation mappings (e.g. mapping `叶凡` to `Ye Fan` or cus
 ```bash
 python main.py --novel-title "Universal Fanfiction Crossover" --start 1 --end 3 --overrides "叶凡:Ye Fan,宇智波止水:Shisui Uchiha"
 ```
-
----
-
-## System Diagrams
-
-To help examiners understand the working and flow of the translation pipeline, here are the detailed system architecture and flowchart diagrams:
-
-### 1. Translation Pipeline Architecture
-Shows the step-by-step per-chapter loop execution, from raw Chinese text extraction to final quality scoring and merging.
-<p align="center">
-  <img src="vibetranslate_architecture.png" alt="VibeTranslate Pipeline Architecture" width="800">
-</p>
-
-### 2. HITL (Human-in-the-Loop) Suggestion Flowchart
-Details how reader-suggested glossary overrides are parsed, programmatically checked, evaluated by Gemini, and applied.
-<p align="center">
-  <img src="vibetranslate_hitl_flowchart.png" alt="HITL Suggestion Flowchart" width="800">
-</p>
-
-### 3. Interface Dashboard Mockup
-A visual prototype showing what the dashboard for the translation orchestrator looks like during batch execution.
-<p align="center">
-  <img src="vibetranslate_dashboard_mockup.png" alt="VibeTranslate Dashboard Mockup" width="800">
-</p>
