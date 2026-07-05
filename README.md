@@ -1,5 +1,15 @@
 # VibeTranslate
 
+<p align="center">
+  <img src="vibetranslate_thumbnail.png" alt="VibeTranslate Banner" width="800">
+</p>
+
+<p align="center">
+  <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-blue.svg" alt="Python 3.11+"></a>
+  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0"></a>
+  <a href="https://ai.google.dev/"><img src="https://img.shields.io/badge/Gemini-2.5%20Flash-orange.svg" alt="Gemini 2.5 Flash"></a>
+</p>
+
 **VibeTranslate** is a context-aware, multi-agent translation pipeline built natively with the Google GenAI SDK (`gemini-2.5-flash`) to translate Chinese web novels into high-quality, formatted English Markdown.
 
 Designed as a Capstone Project for the Google/Kaggle 5-Day AI Agents Intensive Course, it implements custom batch-processing, session pacing, glossary persistence, and a stateful context-awareness system.
@@ -96,3 +106,27 @@ To force specific translation mappings (e.g. mapping `叶凡` to `Ye Fan` or cus
 ```bash
 python main.py --novel-title "Universal Fanfiction Crossover" --start 1 --end 3 --overrides "叶凡:Ye Fan,宇智波止水:Shisui Uchiha"
 ```
+
+---
+
+## System Diagrams
+
+To help examiners understand the working and flow of the translation pipeline, here are the detailed system architecture and flowchart diagrams:
+
+### 1. Translation Pipeline Architecture
+Shows the step-by-step per-chapter loop execution, from raw Chinese text extraction to final quality scoring and merging.
+<p align="center">
+  <img src="vibetranslate_architecture.png" alt="VibeTranslate Pipeline Architecture" width="800">
+</p>
+
+### 2. HITL (Human-in-the-Loop) Suggestion Flowchart
+Details how reader-suggested glossary overrides are parsed, programmatically checked, evaluated by Gemini, and applied.
+<p align="center">
+  <img src="vibetranslate_hitl_flowchart.png" alt="HITL Suggestion Flowchart" width="800">
+</p>
+
+### 3. Interface Dashboard Mockup
+A visual prototype showing what the dashboard for the translation orchestrator looks like during batch execution.
+<p align="center">
+  <img src="vibetranslate_dashboard_mockup.png" alt="VibeTranslate Dashboard Mockup" width="800">
+</p>
