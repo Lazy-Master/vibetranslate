@@ -1,0 +1,15 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "temp_dir": "./temp",
+  "output_dir": "./output",
+  "glossary_path": "./output/glossary.json",
+  "context_path": "./output/story_context.json",
+  "session_wait_seconds": 5,
+  "max_chapters_per_batch": 10,
+  "translation_rules": {
+    "max_sentences_per_paragraph": 3,
+    "force_blank_lines": true,
+    "allow_pinyin_for_original": true,
+    "dialogue_on_separate_lines": true
+  }
+}
