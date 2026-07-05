@@ -17,7 +17,7 @@ class ContextUpdateSchema(BaseModel):
     ending_state: str = Field(description="Narrative state at the very end of this chapter. List the location, characters present in the scene, and the last active cliffhanger or action.")
 
 class ContextManager:
-    def __init__(self, filepath: str, client: Optional[genai.Client] = None, model: str = "gemini-2.5-flash"):
+    def __init__(self, filepath: str, client: Optional[genai.Client] = None, model: str = "gemini-3.1-flash-lite"):
         self.filepath = filepath
         self.client = client or genai.Client()
         self.model = model

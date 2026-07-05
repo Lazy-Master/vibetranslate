@@ -41,7 +41,7 @@ def sanitize_translation(text: str) -> str:
     #    These patterns match sequences of special symbols that don't belong
     #    in natural English prose (e.g., %$#&, @#$%, ★☆, etc.)
     # Remove clusters of 2+ consecutive special symbols (not inside [] brackets)
-    cleaned = re.sub(r'(?<!\[)[%$#&@!^*~]{2,}(?!\])', '', cleaned)
+    cleaned = re.sub(r'(?<!\[)[%$#&@^*~]{2,}(?!\])', '', cleaned)
     
     # 3. Remove stray unicode replacement characters
     cleaned = cleaned.replace('\ufffd', '')  # U+FFFD replacement character
@@ -100,7 +100,7 @@ def sanitize_translation(text: str) -> str:
 
 
 class Translator:
-    def __init__(self, client: Optional[genai.Client] = None, model: str = "gemini-2.5-flash", config_rules: Optional[dict] = None):
+    def __init__(self, client: Optional[genai.Client] = None, model: str = "gemini-3.1-flash-lite", config_rules: Optional[dict] = None):
         self.client = client or genai.Client()
         self.model = model
         self.config_rules = config_rules or {}

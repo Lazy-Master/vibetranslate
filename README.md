@@ -7,10 +7,10 @@
 <p align="center">
   <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-blue.svg" alt="Python 3.11+"></a>
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0"></a>
-  <a href="https://ai.google.dev/"><img src="https://img.shields.io/badge/Gemini-2.5%20Flash-orange.svg" alt="Gemini 2.5 Flash"></a>
+  <a href="https://ai.google.dev/"><img src="https://img.shields.io/badge/Gemini-3.1%20Flash--Lite-orange.svg" alt="Gemini 3.1 Flash-Lite"></a>
 </p>
 
-**VibeTranslate** is a context-aware, multi-agent translation pipeline built natively with the Google GenAI SDK (`gemini-2.5-flash`) to translate Chinese web novels into high-quality, formatted English Markdown.
+**VibeTranslate** is a context-aware, multi-agent translation pipeline built natively with the Google GenAI SDK (`gemini-3.1-flash-lite`) to translate Chinese web novels into high-quality, formatted English Markdown.
 
 Designed as a Capstone Project for the Google/Kaggle 5-Day AI Agents Intensive Course, it implements custom batch-processing, session pacing, glossary persistence, and a stateful context-awareness system.
 

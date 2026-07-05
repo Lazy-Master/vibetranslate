@@ -9,7 +9,7 @@ from .translator import sanitize_translation
 
 
 class Editor:
-    def __init__(self, client: Optional[genai.Client] = None, model: str = "gemini-2.5-flash"):
+    def __init__(self, client: Optional[genai.Client] = None, model: str = "gemini-3.1-flash-lite"):
         self.client = client or genai.Client()
         self.model = model
 
@@ -46,23 +46,23 @@ class Editor:
 
         for idx, para in enumerate(paragraphs):
             para_num = idx + 1
-            # Check if this paragraph is a status screen
-            is_status_screen = para.startswith("[") and para.endswith("]")
+            # Check if this paragraph is a status screen or attempts to be one
+            is_status_attempt = para.startswith("[") or para.endswith("]")
 
-            if is_status_screen:
-                # 5. Status screen check: must not contain blank lines inside
-                # (Since we split by \n\n, any blank line would split it into two paragraphs,
-                # so if it starts with [ and ends with ], it doesn't have blank lines inside, which is good.
-                # But let's check if there are unmatched brackets.)
+            if is_status_attempt:
+                # 5. Status screen check: must start with '[' and end with ']'
+                if not (para.startswith("[") and para.endswith("]")):
+                    violations.append(f"Paragraph {para_num} has mismatched status screen markers (must start with '[' and end with ']').")
+                
                 open_brackets = para.count("[")
                 close_brackets = para.count("]")
                 if open_brackets != close_brackets:
-                    violations.append(f"Paragraph {para_num} (Status Screen) has unmatched square brackets.")
+                    violations.append(f"Paragraph {para_num} has unmatched square brackets.")
             else:
                 # 6. Prose paragraph checks: max 3 sentences per paragraph
                 # Simple sentence splitter on punctuation (.?! followed by whitespace or quote)
                 # Handles dialogue quotes at the end of a sentence
-                sentences = re.split(r'(?<=[.!?])\s+(?=[A-Za-z"\'"\d])', para)
+                sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z"\'\d])|(?<=[.!?]["\'])\s+(?=[A-Z"\'\d])', para)
                 # Filter out empty strings
                 sentences = [s.strip() for s in sentences if s.strip()]
                 

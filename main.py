@@ -452,7 +452,7 @@ def main():
             print(f"[Warning] Failed to load config JSON: {e}")
             
     # Resolve configuration values (arguments override config.json)
-    model = config.get("model", "gemini-2.5-flash")
+    model = config.get("model", "gemini-3.1-flash-lite")
     temp_dir = config.get("temp_dir", "./temp")
     output_dir = config.get("output_dir", "./output")
     glossary_path = config.get("glossary_path", "./output/glossary.json")
